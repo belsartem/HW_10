@@ -45,7 +45,7 @@ public class DatikaLandingTest extends TestBase {
         datikaPage.openPage("");
         $(".country-select").hover();
         $(".country-select").$(byText(languages.name())).click();
-        $("h4").shouldHave(text(languages.description));
+        $("h4").shouldHave(text(languages.getDescription()));
     }
 
     static Stream<Arguments> datikaSiteShouldDisplayCorrectMenuButtonsInCategories() {
@@ -100,7 +100,7 @@ public class DatikaLandingTest extends TestBase {
         );
     }
 
-    @MethodSource
+    @MethodSource("datikaSiteShouldDisplayCorrectMenuButtonsInCategories")
     @ParameterizedTest
     @Tags({
             @Tag("REGRESSION"),

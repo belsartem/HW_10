@@ -6,10 +6,13 @@ public enum Language {
     EN("How to buy?"),
     RU("Как купить?");
 
-
-    public final String description;
+    private final String description;
 
     Language(String description) {
         this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }
