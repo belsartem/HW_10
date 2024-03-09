@@ -4,10 +4,14 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class DatikaPage {
 
-    public void openPage(String url) {
-        String sSevenPageURL = "https://datika.me/";
-        open(sSevenPageURL);
+    public DatikaPage openPage() {
+
+        String datikaLandingPageURL = "https://datika.me/";
+
+        open(datikaLandingPageURL);
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
+
+        return this;
     }
 }

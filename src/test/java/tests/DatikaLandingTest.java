@@ -32,7 +32,7 @@ public class DatikaLandingTest extends TestBase {
     @ParameterizedTest(name = "For Search Request {0} Should Be Returned Not Empty List")
     @Tag("REGRESSION")
     void searchResultsShouldNotBeEmpty(String searchQuery) throws InterruptedException {
-        datikaPage.openPage("");
+        datikaPage.openPage();
         $("#search").setValue(searchQuery).pressEnter();
         $$x("//*[@class='product-list products_view_grid']//li")
                 .shouldBe(sizeGreaterThan(0));
@@ -42,7 +42,7 @@ public class DatikaLandingTest extends TestBase {
     @ParameterizedTest(name = "Datika Online Store Landing Page {0} Should Have Corresponding Offer Title")
     @Tag("SMOKE")
     void datikaSiteShouldDisplayCorrectText(Language languages) throws InterruptedException {
-        datikaPage.openPage("");
+        datikaPage.openPage();
         $(".country-select").hover();
         $(".country-select").$(byText(languages.name())).click();
         $("h4").shouldHave(text(languages.getDescription()));
@@ -108,7 +108,7 @@ public class DatikaLandingTest extends TestBase {
     })
     @DisplayName("Datika Online Store Landing Page {0} Should Have Corresponding Categories Menu To Every Language")
     void datikaSiteShouldDisplayCorrectMenuButtonsInCategories(Language languages, List<String> expectedButtons) throws InterruptedException {
-        datikaPage.openPage("");
+        datikaPage.openPage();
         $(".country-select").hover();
         $(".country-select").$(byText(languages.name())).click();
         $$x("//*[@class='side_block_collapsible side_menu_wrap hidden-xs']//*[@class='menu']//a")
