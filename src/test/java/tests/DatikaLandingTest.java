@@ -32,8 +32,8 @@ public class DatikaLandingTest extends TestBase {
     @ParameterizedTest(name = "For Search Request {0} Should Be Returned Not Empty List")
     @Tag("REGRESSION")
     void searchResultsShouldNotBeEmpty(String searchQuery) throws InterruptedException {
-        datikaPage.openPage();
-        $("#search").setValue(searchQuery).pressEnter();
+        datikaPage.openPage()
+                .setSearchQuere(searchQuery);
         $$x("//*[@class='product-list products_view_grid']//li")
                 .shouldBe(sizeGreaterThan(0));
     }

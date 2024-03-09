@@ -1,5 +1,7 @@
 package pages;
 
+import com.codeborne.selenide.SelenideElement;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class DatikaPage {
@@ -12,6 +14,14 @@ public class DatikaPage {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
 
+        return this;
+    }
+
+    private final SelenideElement
+            inputSearchQuery = $("#search");
+
+    public DatikaPage setSearchQuere(String searchQuery) {
+        inputSearchQuery.setValue(searchQuery).pressEnter();
         return this;
     }
 }
